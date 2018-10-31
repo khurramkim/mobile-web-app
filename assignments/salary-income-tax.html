@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Income Tax</title>
+</head>
+<body>
+	
+	<script> 
+		/* Constructor Function */
+
+		function Staff (name, salary) {
+			this.name = name;
+			this.salary = salary;
+		}
+
+		/* Prototype to add method */
+
+		Staff.prototype.tax = function() {
+			if (this.salary < 20000 && this.salary > 10000  ) {
+				return this.salary * 0.05;
+			}
+			if (this.salary < 30000 && this.salary > 20000  ) {
+				return this.salary * 0.10;
+			}
+			else {
+				return this.salary * 0.15;
+			}
+		};
+
+		/* Empty Array */
+		
+		var list = [];
+
+		/* Push Objects in array */
+
+		list.push(new Staff('Ali', 12000));
+		list.push(new Staff('hanif', 25000));
+		list.push(new Staff('zeeshan', 37000));
+
+		/* loop for getting object properties  */
+
+		for (i=0; i < list.length; i ++) {
+			console.log('Name: ' + list[i].name + '\n' + 'Salary: ' + list[i].salary +  '\n' +  'Tax: ' + list[i].tax());
+		}
+	</script>
+</body>
+</html>

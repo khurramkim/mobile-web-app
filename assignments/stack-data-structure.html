@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Data Structure Stack</title>
+</head>
+<body>
+	
+	<script> 
+		function Stack () {
+			this.data = [];
+		}
+
+		Stack.prototype.add = function(record){
+			this.data.push(record);
+		};
+
+		Stack.prototype.remove = function(){
+			this.data.pop()
+		};
+
+		Stack.prototype.first = function(){
+			return this.data[0];
+		};
+		Stack.prototype.last = function(){
+			return this.data[this.data.length-1];
+		};
+		Stack.prototype.size = function(){
+			return this.data.length;
+		};
+
+		const stack = new Stack();
+
+		stack.add(1);
+		stack.add(2);
+		stack.add(3);
+		console.log(stack.size());
+		console.log(stack.first());
+		console.log(stack.last());
+
+		stack.remove();
+
+		console.log(stack);
+
+
+
+
+	</script>
+</body>
+</html>

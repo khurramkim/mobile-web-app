@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Encryption or Decrypiton</title>
+	<input type="email" name="" id="email" placeholder="Email">
+	<input type="password" name="" id="password" placeholder="password">
+	<button onclick="encode()">Encode</button>
+	<button onclick="decode()">Decode</button>
+</head>
+<body>
+	
+	<script>
+		const arr = [];
+		let email = document.getElementById('email');
+		let password = document.getElementById('password');
+
+		function Obj (email, password) {
+			this.email = email;
+			this.password = password;
+		}
+
+
+		function encode () {
+			let encodedEmail = window.btoa( email.value );
+			let encodedPass = window.btoa( password.value );
+			arr.push(new Obj(encodedEmail, encodedPass));
+			email.value = '';
+			password.value = '';
+			console.log(arr);
+		}
+
+		function decode () {
+			for (var i = 0; i < arr.length; i++) {
+				arr[i].email = window.atob( arr[i].email );
+				arr[i].password = window.atob( arr[i].password );
+				console.log('Email ' + arr[i].email + '\n' + 'Password ' +  arr[i].password);
+			}
+		}
+	</script>
+</body>
+</html>

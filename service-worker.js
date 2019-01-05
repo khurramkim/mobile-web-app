@@ -14,7 +14,7 @@
 importScripts("https://storage.googleapis.com/workbox-cdn/releases/3.6.3/workbox-sw.js");
 
 importScripts(
-  "/joblisting/precache-manifest.16ff41fab547624b775a58887ae3a006.js"
+  "/mobile-web-app/deployment/joblisting/precache-manifest.e2a5887e75b8edbf9e71a60400c7a875.js"
 );
 
 workbox.clientsClaim();
@@ -28,7 +28,7 @@ self.__precacheManifest = [].concat(self.__precacheManifest || []);
 workbox.precaching.suppressWarnings();
 workbox.precaching.precacheAndRoute(self.__precacheManifest, {});
 
-workbox.routing.registerNavigationRoute("/joblisting/index.html", {
+workbox.routing.registerNavigationRoute("/mobile-web-app/deployment/joblisting/index.html", {
   
   blacklist: [/^\/_/,/\/[^\/]+\.[^\/]+$/],
 });

@@ -27,7 +27,7 @@ class FeatureCategory extends Component {
   }
 }
 
-class CategoryBlock extends FeatureCategory {
+class CategoryBlock extends Component {
   render() {
     return (
       <div className="col-lg-2 col-md-4 col-sm-6">

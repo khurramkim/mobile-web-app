@@ -17,7 +17,7 @@ class Feature extends Component {
   }
 }
 
-class FeatBlock extends Feature {
+class FeatBlock extends Component {
   render() {
     return (
       <div className="col-lg-3 col-md-6">

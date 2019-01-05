@@ -51,7 +51,7 @@
 
 body {
   color: #777777;
-  font-family: "Poppins", sans-serif;
+  font-family: "Poppins", sans-serif !important;
   font-size: 14px;
   font-weight: 300;
   line-height: 1.625em;
@@ -3219,6 +3219,7 @@ body.mobile-nav-active #mobile-nav-toggle {
   width: 20px;
   width: 40px;
   display: inline-table;
+  margin: 0 2px;
   height: 40px;
   text-align: center;
   padding-top: 10px;

@@ -17,7 +17,7 @@ class Header extends Component {
   }
 }
 
-class Logo extends Header {
+class Logo extends Component {
   render() {
     return (
       <div id="logo">
@@ -27,7 +27,7 @@ class Logo extends Header {
   }
 }
 
-class Navigation extends Header {
+class Navigation extends Component {
   render() {
     return (
       <nav id="nav-menu-container">

@@ -22,7 +22,7 @@ class PopularPost extends Component {
 }
 
 
-class Post extends PopularPost {
+class Post extends Component {
   render() {
     return (
       <div className="single-popular-post d-flex flex-row">

@@ -5,6 +5,9 @@ import Feature from './Feature-Area';
 import PopularPost from './PopularPost';
 import FeatureCategory from './FeatureCategory';
 import JobPost from './JobPost';
+import CallToAction from './CallToAction';
+import AppDownload from './AppDownload';
+import Footer from './Footer';
 
 class App extends Component {
   render() {
@@ -16,6 +19,9 @@ class App extends Component {
         <PopularPost/>
         <FeatureCategory/>
         <JobPost />
+        <CallToAction />
+        <AppDownload />
+        <Footer />
       </div>
     );
   }

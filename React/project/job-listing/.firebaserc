@@ -1,0 +1,6 @@
+{
+  "projects": {
+    "staging": "job-listing-app",
+    "default": "job-listing-app"
+  }
+}

@@ -3219,6 +3219,7 @@ body.mobile-nav-active #mobile-nav-toggle {
   width: 20px;
   width: 40px;
   display: inline-table;
+  margin: 0 2px;
   height: 40px;
   text-align: center;
   padding-top: 10px;

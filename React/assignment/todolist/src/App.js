@@ -1,8 +1,9 @@
 import 'bootstrap/dist/css/bootstrap.min.css';
 import React, { Component } from 'react';
-import logo from './logo.svg';
-import cat from './cat.jpg';
+import { BrowserRouter as Router, Route, Link } from "react-router-dom";
 import './App.css';
+
+
 
 class App extends Component {
     constructor(props) {
@@ -23,45 +24,57 @@ class App extends Component {
 
 
     handleSubmit(event) {
-      const newItem = {
-      text: this.state.text,
-      id: Date.now()
-    };
+        
+        const newItem = {
+        text: this.state.text,
+        id: Date.now()
+      };
 
       if (!this.state.text.length) {
-      return;
-    }
+        return;
+      }
       event.preventDefault();
       this.setState(state => ({
       list: state.list.concat(newItem),
       text : ''
-    }));
+    }), () => {
+        window.localStorage.setItem('savedList', JSON.stringify(this.state.list));
+    });
+
       
     }
 
-    removeList(id) {
+    componentDidMount() {
+      const list = window.localStorage.getItem('savedList');
+      const parsedList = JSON.parse(list);
+  
+      this.setState({
+        list: parsedList,
+      })
+  }
 
-      console.log(id);
-      console.log(this.state.list);
+    removeList(id) {
       
-      var filtered = this.state.list.filter(function(value, index, arr){
+      var filtered = this.state.list.filter(function(value){
 
       return value.id !== id;
 
-      });
+    });
 
-      console.log(filtered);
-this.setState(state => ({
-      list: filtered
-      
-    }));
+    this.setState({ list: filtered }, () => {
+        window.localStorage.setItem('savedList', JSON.stringify(this.state.list));
+    });
+
     }
 
 
     removeListAll() {
-      this.setState({list: []});
+      this.setState({ list: [] }, () => {
+        window.localStorage.setItem('savedList', JSON.stringify(this.state.list));
+    });
     }
 
+    
 
     render() {
         
@@ -75,7 +88,7 @@ this.setState(state => ({
           rmvBtn = '';
         }
 
-        
+        const {list} = this.state;
 
         return (
             <div className="container mt-5 mt-5">
@@ -84,14 +97,15 @@ this.setState(state => ({
               <div className="form-inline">
               <input className="form-control" type="text" value={this.state.text} onChange={this.handleChange} />
               <button className="btn btn-primary" type="button" onClick={this.handleSubmit}>Submit</button>
-    
-              <ul className="list-group mt-3 mb-3">
+              <ul className="list-group mt-3 mb-3">      
                 {this.state.list.map((item,index) => (
-                  <li className="list-group-item" key={item.id}>{index + 1} / {item.text} <button className="btn btn-primary" type="button" onClick={() => this.removeList(item.id)}>Remove</button></li>
-                ))} 
+                  
+                  <li className="list-group-item" key={item.id}>{index + 1} / {item.text}<button className="btn btn-primary" type="button" onClick={() => this.removeList(item.id)}>Remove</button> </li>
+                  
+                ))}
               </ul>
-            
-              {rmvBtn}  
+              {rmvBtn}
+              
             
               </div>
               </div>
@@ -101,6 +115,9 @@ this.setState(state => ({
     }
 }
 
+{/* <Link to={`/${item.text}`}></Link>
+<Route exact path="/" component={TodoList} />
+<Route exact  path={`/:id`} component={Topic} />  */}
 
 
 export default App;

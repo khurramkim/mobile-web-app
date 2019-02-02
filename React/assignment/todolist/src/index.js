@@ -6,10 +6,12 @@ import App from './App';
 // import Data2 from './comp2';
 import * as serviceWorker from './serviceWorker';
 
-setInterval(function(){
-	ReactDOM.render(<App/>, document.getElementById('root'));
-},1000);
 
+ReactDOM.render(<App/>, document.getElementById('root'));
+
+if (module.hot) {
+	module.hot.accept()
+}
 
 // If you want your app to work offline and load faster, you can change
 // unregister() to register() below. Note this comes with some pitfalls.
